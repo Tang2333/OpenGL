@@ -86,8 +86,8 @@ GLUSboolean init(GLUSvoid)
 
     GLfloat normalMatrix[9];
 
-    glusFileLoadText("../Example07/shader/normmap.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example07/shader/normmap.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example07/shader/normmap.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example07/shader/normmap.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_program, (const GLUSchar**) &vertexSource.text, 0, 0, 0, (const GLUSchar**) &fragmentSource.text);
 
@@ -115,7 +115,7 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusImageLoadTga("rock_color.tga", &image);
+    glusImageLoadTga("../../Binaries/rock_color.tga", &image);
 
     glGenTextures(1, &g_texture);
     glBindTexture(GL_TEXTURE_2D, g_texture);
@@ -131,7 +131,7 @@ GLUSboolean init(GLUSvoid)
     glBindTexture(GL_TEXTURE_2D, 0);
 
 
-    glusImageLoadTga("rock_normal.tga", &image);
+    glusImageLoadTga("../../Binaries/rock_normal.tga", &image);
 
     glGenTextures(1, &g_normalMap);
     glBindTexture(GL_TEXTURE_2D, g_normalMap);

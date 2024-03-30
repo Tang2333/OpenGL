@@ -193,8 +193,8 @@ GLUSboolean init(GLUSvoid)
 
 	//
 
-	glusFileLoadText("../Example28/shader/texture.vert.glsl", &vertexSource);
-	glusFileLoadText("../Example28/shader/texture.frag.glsl", &fragmentSource);
+	glusFileLoadText("../../Example28/shader/texture.vert.glsl", &vertexSource);
+	glusFileLoadText("../../Example28/shader/texture.frag.glsl", &fragmentSource);
 
 	glusProgramBuildFromSource(&g_program, (const GLUSchar**)&vertexSource.text, 0, 0, 0, (const GLUSchar**)&fragmentSource.text);
 
@@ -220,8 +220,8 @@ GLUSboolean init(GLUSvoid)
 	// SSAO shader etc.
 	//
 
-	glusFileLoadText("../Example28/shader/ssao.vert.glsl", &vertexSource);
-	glusFileLoadText("../Example28/shader/ssao.frag.glsl", &fragmentSource);
+	glusFileLoadText("../../Example28/shader/ssao.vert.glsl", &vertexSource);
+	glusFileLoadText("../../Example28/shader/ssao.frag.glsl", &fragmentSource);
 
 	glusProgramBuildFromSource(&g_ssaoProgram, (const GLUSchar**)&vertexSource.text, 0, 0, 0, (const GLUSchar**)&fragmentSource.text);
 
@@ -249,8 +249,8 @@ GLUSboolean init(GLUSvoid)
 	// Blur shader etc.
 	//
 
-	glusFileLoadText("../Example28/shader/blur.vert.glsl", &vertexSource);
-	glusFileLoadText("../Example28/shader/blur.frag.glsl", &fragmentSource);
+	glusFileLoadText("../../Example28/shader/blur.vert.glsl", &vertexSource);
+	glusFileLoadText("../../Example28/shader/blur.frag.glsl", &fragmentSource);
 
 	glusProgramBuildFromSource(&g_blurProgram, (const GLUSchar**)&vertexSource.text, 0, 0, 0, (const GLUSchar**)&fragmentSource.text);
 
@@ -276,7 +276,7 @@ GLUSboolean init(GLUSvoid)
 	// Texture set up for the ground plane.
 	//
 
-	glusImageLoadTga("wood_texture.tga", &image);
+	glusImageLoadTga("../../Binaries/wood_texture.tga", &image);
 
 	glGenTextures(1, &g_texture);
 	glBindTexture(GL_TEXTURE_2D, g_texture);

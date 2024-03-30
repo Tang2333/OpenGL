@@ -76,17 +76,17 @@ static const GLint QUADRANT_STEP = 2;
 /**
  * The height map of the terrain. Width and height does not have to be the same but they have to be power of two plus one.
  */
-static const char* HEIGHT_MAP = "grand_canyon_height.tga";
+static const char* HEIGHT_MAP = "../../Binaries/grand_canyon_height.tga";
 
 /**
  * The color map of the terrain.
  */
-static const char* COLOR_MAP = "grand_canyon_color.tga";
+static const char* COLOR_MAP = "../../Binaries/grand_canyon_color.tga";
 
 /**
  * The normal map of the terrain. Width and height does not have to be the same but they have to be power of two plus one.
  */
-static const char* NORMAL_MAP = "grand_canyon_normal.tga";
+static const char* NORMAL_MAP = "../../Binaries/grand_canyon_normal.tga";
 
 /**
  * Flag, if animation is on or off
@@ -442,9 +442,9 @@ GLUSboolean init(GLUSvoid)
 
     // Pass one.
 
-    glusFileLoadText("../Example14/shader/PassOne.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example14/shader/PassOne.geom.glsl", &geometrySource);
-    glusFileLoadText("../Example14/shader/PassOne.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example14/shader/PassOne.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example14/shader/PassOne.geom.glsl", &geometrySource);
+    glusFileLoadText("../../Example14/shader/PassOne.frag.glsl", &fragmentSource);
 
     // Compile and ...
     glusProgramCreateFromSource(&g_programPassOne, (const GLUSchar**) &vertexSource.text, 0, 0, (const GLUSchar**) &geometrySource.text, (const GLUSchar**) &fragmentSource.text);
@@ -478,11 +478,11 @@ GLUSboolean init(GLUSvoid)
 
     // Pass two.
 
-    glusFileLoadText("../Example14/shader/PassTwo.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example14/shader/PassTwo.cont.glsl", &controlSource);
-    glusFileLoadText("../Example14/shader/PassTwo.eval.glsl", &evaluationSource);
-    glusFileLoadText("../Example14/shader/PassTwo.geom.glsl", &geometrySource);
-    glusFileLoadText("../Example14/shader/PassTwo.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example14/shader/PassTwo.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example14/shader/PassTwo.cont.glsl", &controlSource);
+    glusFileLoadText("../../Example14/shader/PassTwo.eval.glsl", &evaluationSource);
+    glusFileLoadText("../../Example14/shader/PassTwo.geom.glsl", &geometrySource);
+    glusFileLoadText("../../Example14/shader/PassTwo.frag.glsl", &fragmentSource);
 
     if (!glusProgramBuildFromSource(&g_shaderProgramPassTwo, (const GLUSchar**) &vertexSource.text, (const GLUSchar**) &controlSource.text, (const GLUSchar**) &evaluationSource.text, (const GLUSchar**) &geometrySource.text, (const GLUSchar**) &fragmentSource.text))
     {

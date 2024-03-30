@@ -76,13 +76,15 @@ GLUSboolean init(GLUSvoid)
 
     GLUSshape plane;
 
-    glusFileLoadText("../Example03/shader/texture.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example03/shader/grey.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example03/shader/texture.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example03/shader/grey.frag.glsl", &fragmentSource);
+    glCheckError();
 
     glusProgramBuildFromSource(&g_program, (const GLchar**) &vertexSource.text, 0, 0, 0, (const GLchar**) &fragmentSource.text);
 
     glusFileDestroyText(&vertexSource);
     glusFileDestroyText(&fragmentSource);
+    glCheckError();
 
     //
 
@@ -96,22 +98,26 @@ GLUSboolean init(GLUSvoid)
     //
 
     // Load the image.
-    glusImageLoadTga("desert.tga", &image);
+    glusImageLoadTga("../../Binaries/desert.tga", &image);
 
     // Generate and bind a texture.
     glGenTextures(1, &g_texture);
     glBindTexture(GL_TEXTURE_2D, g_texture);
+    glCheckError();
 
     // Transfer the image data from the CPU to the GPU.
     glTexImage2D(GL_TEXTURE_2D, 0, image.format, image.width, image.height, 0, image.format, GL_UNSIGNED_BYTE, image.data);
+    glCheckError();
 
     // Setting the texture parameters.
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glCheckError();
 
     glBindTexture(GL_TEXTURE_2D, 0);
+    glCheckError();
 
     //
 
@@ -143,6 +149,7 @@ GLUSboolean init(GLUSvoid)
 
     // Now we can destroy the shape, as all data is now on the GPU.
     glusShapeDestroyf(&plane);
+    glCheckError();
 
     //
 
@@ -161,6 +168,7 @@ GLUSboolean init(GLUSvoid)
 
     // Also bind the indices to the VAO.
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, g_indicesVBO);
+    glCheckError();
 
     //
 
@@ -172,6 +180,7 @@ GLUSboolean init(GLUSvoid)
     //
 
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    glCheckError();
 
     return GLUS_TRUE;
 }
@@ -182,6 +191,7 @@ GLUSvoid reshape(GLUSint width, GLUSint height)
     GLfloat modelViewProjectionMatrix[16];
 
     glViewport(0, 0, width, height);
+    glCheckError();
 
     // Create the view matrix.
     glusMatrix4x4LookAtf(viewMatrix, 0.0f, 0.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
@@ -194,6 +204,7 @@ GLUSvoid reshape(GLUSint width, GLUSint height)
 
     // Pass the model view projection matrix to the current active program.
     glUniformMatrix4fv(g_modelViewProjectionMatrixLocation, 1, GL_FALSE, modelViewProjectionMatrix);
+    glCheckError();
 }
 
 GLUSboolean update(GLUSfloat time)
@@ -202,6 +213,7 @@ GLUSboolean update(GLUSfloat time)
 
     // Here we draw the plane / rectangle using the indices, stored in the VBO.
     glDrawElements(GL_TRIANGLES, g_numberIndicesPlane, GL_UNSIGNED_INT, 0);
+    glCheckError();
 
     return GLUS_TRUE;
 }

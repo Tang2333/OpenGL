@@ -114,8 +114,8 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusFileLoadText("../Example22/shader/color.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example22/shader/color.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example22/shader/color.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example22/shader/color.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_program, (const GLUSchar**) &vertexSource.text, 0, 0, 0, (const GLUSchar**) &fragmentSource.text);
 
@@ -136,9 +136,9 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusFileLoadText("../Example22/shader/shadowvolume.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example22/shader/shadowvolume.geom.glsl", &geometrySource);
-    glusFileLoadText("../Example22/shader/shadowvolume.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example22/shader/shadowvolume.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example22/shader/shadowvolume.geom.glsl", &geometrySource);
+    glusFileLoadText("../../Example22/shader/shadowvolume.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_programShadowVolume, (const GLUSchar**) &vertexSource.text, 0, 0, (const GLUSchar**) &geometrySource.text, (const GLUSchar**) &fragmentSource.text);
 
@@ -157,8 +157,8 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusFileLoadText("../Example22/shader/shadow.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example22/shader/shadow.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example22/shader/shadow.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example22/shader/shadow.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_programShadowPlane, (const GLUSchar**) &vertexSource.text, 0, 0, 0, (const GLUSchar**) &fragmentSource.text);
 

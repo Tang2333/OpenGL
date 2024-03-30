@@ -49,10 +49,14 @@ extern "C"
 // GLEW for binding OpenGL functions. GLFW for hardware abstraction.
 //
 
-#define GLEW_STATIC
-#include <GL/glew.h>
+//#define GLEW_STATIC
+//#include <GL/glew.h>
+#include <glad/gl.h>
 
 #include <GLFW/glfw3.h>
+
+    GLenum glCheckError_(const char* file, int line);
+#define glCheckError() glCheckError_(__FILE__, __LINE__) 
 
 typedef int EGLint;
 

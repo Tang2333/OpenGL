@@ -135,8 +135,8 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusFileLoadText("../Example34/shader/renderdepthmap.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example34/shader/renderdepthmap.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example34/shader/renderdepthmap.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example34/shader/renderdepthmap.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_programDepthPass, (const GLUSchar**) &vertexSource.text, 0, 0, 0, (const GLUSchar**) &fragmentSource.text);
 
@@ -145,8 +145,8 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusFileLoadText("../Example34/shader/subsurfacescattering.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example34/shader/subsurfacescattering.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example34/shader/subsurfacescattering.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example34/shader/subsurfacescattering.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_program, (const GLUSchar**) &vertexSource.text, 0, 0, 0, (const GLUSchar**) &fragmentSource.text);
 

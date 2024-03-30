@@ -131,8 +131,8 @@ GLUSboolean init(GLUSvoid)
 
     GLUSshape wavefrontObj;
 
-    glusFileLoadText("../Example35/shader/phong_depth_peel.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example35/shader/phong_depth_peel.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example35/shader/phong_depth_peel.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example35/shader/phong_depth_peel.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_program, (const GLUSchar**) &vertexSource.text, 0, 0, 0, (const GLUSchar**) &fragmentSource.text);
 
@@ -166,8 +166,8 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-	glusFileLoadText("../Example35/shader/fullscreen_blend.vert.glsl", &vertexSource);
-	glusFileLoadText("../Example35/shader/fullscreen_blend.frag.glsl", &fragmentSource);
+	glusFileLoadText("../../Example35/shader/fullscreen_blend.vert.glsl", &vertexSource);
+	glusFileLoadText("../../Example35/shader/fullscreen_blend.frag.glsl", &fragmentSource);
 
 	glusProgramBuildFromSource(&g_blendFullscreenProgram, (const GLchar**)&vertexSource.text, 0, 0, 0, (const GLchar**)&fragmentSource.text);
 

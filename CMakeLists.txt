@@ -14,7 +14,7 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     SET(Processor "x64")
     SET(OperatingSystem "Darwin")
     SET(Compiler "GCC")	
-    set(LIBRARIES_TO_LINK glew glfw  "-framework OpenGL")
+    set(LIBRARIES_TO_LINK glfw  "-framework OpenGL")
 
 ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 	# Linux
@@ -46,7 +46,7 @@ ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 	SET(Processor "x86")
 	SET(OperatingSystem "Windows")
 	SET(Compiler "MSVC")
-	set(LIBRARIES_TO_LINK OpenGL32.lib glew32s.lib glfw3.lib)
+	set(LIBRARIES_TO_LINK OpenGL32.lib glfw3.lib)
 		
 ENDIF()
 
@@ -59,13 +59,12 @@ set(GLFW_INSTALL OFF CACHE BOOL "Generate installation target")
 
 # set GLUS variables
 set(ENV_DIR ${Processor}/${OperatingSystem}/${Compiler})
-set(EXTERNAL_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/External/${ENV_DIR}/include)
-set(EXTERNAL_LIB_DIR ${CMAKE_SOURCE_DIR}/External/${ENV_DIR}/lib)
+set(EXTERNAL_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/glad/include)
 
 set(GLFW_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/GLFW/include)
 
 include_directories(${GLFW_INCLUDE_DIR} ${EXTERNAL_INCLUDE_DIR})
-link_directories(${EXTERNAL_LIB_DIR} ${LIBRARY_OUTPUT_PATH})
+link_directories(${LIBRARY_OUTPUT_PATH})
 
 add_subdirectory(GLUS)
 add_subdirectory(GLFW)

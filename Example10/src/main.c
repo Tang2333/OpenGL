@@ -58,9 +58,9 @@ GLUSboolean init(GLUSvoid)
     GLUStextfile geometrySource;
     GLUStextfile fragmentSource;
 
-    glusFileLoadText("../Example10/shader/dublicate.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example10/shader/dublicate.geom.glsl", &geometrySource);
-    glusFileLoadText("../Example10/shader/dublicate.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example10/shader/dublicate.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example10/shader/dublicate.geom.glsl", &geometrySource);
+    glusFileLoadText("../../Example10/shader/dublicate.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_program, (const GLUSchar**) &vertexSource.text, 0, 0, (const GLUSchar**) &geometrySource.text, (const GLUSchar**) &fragmentSource.text);
 

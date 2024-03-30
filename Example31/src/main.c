@@ -148,8 +148,8 @@ GLUSboolean init(GLUSvoid)
 	// Each point light is rendered as a sphere.
 	//
 
-	glusFileLoadText("../Example31/shader/point_light.vert.glsl", &vertexSource);
-	glusFileLoadText("../Example31/shader/point_light.frag.glsl", &fragmentSource);
+	glusFileLoadText("../../Example31/shader/point_light.vert.glsl", &vertexSource);
+	glusFileLoadText("../../Example31/shader/point_light.frag.glsl", &fragmentSource);
 
 	glusProgramBuildFromSource(&g_programPointLight, (const GLUSchar**)&vertexSource.text, 0, 0, 0, (const GLUSchar**)&fragmentSource.text);
 
@@ -222,8 +222,8 @@ GLUSboolean init(GLUSvoid)
 	//
 	//
 
-	glusFileLoadText("../Example31/shader/deferred_shading.vert.glsl", &vertexSource);
-	glusFileLoadText("../Example31/shader/deferred_shading.frag.glsl", &fragmentSource);
+	glusFileLoadText("../../Example31/shader/deferred_shading.vert.glsl", &vertexSource);
+	glusFileLoadText("../../Example31/shader/deferred_shading.frag.glsl", &fragmentSource);
 
 	glusProgramBuildFromSource(&g_programDeferredShading, (const GLUSchar**)&vertexSource.text, 0, 0, 0, (const GLUSchar**)&fragmentSource.text);
 

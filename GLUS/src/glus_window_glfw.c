@@ -604,12 +604,7 @@ GLUSboolean GLUSAPIENTRY glusWindowCreate(const GLUSchar* title, const GLUSint w
 
 	glfwMakeContextCurrent(g_window);
 
-	glewExperimental = GLUS_TRUE;
-
-	err = glewInit();
-
-	if (GLUS_OK != err)
-	{
+	if (!gladLoadGL((GLADloadfunc)glfwGetProcAddress)) {
 		glusWindowDestroy();
 
 		glusLogPrint(GLUS_LOG_ERROR, "GLEW could not be initialized: %x", err);
@@ -618,7 +613,8 @@ GLUSboolean GLUSAPIENTRY glusWindowCreate(const GLUSchar* title, const GLUSint w
 	}
 
 	// Catch all OpenGL errors so far.
-	glGetError();
+	//glGetError();
+	glCheckError();
 
 	if (!glusVersionIsSupported(major, minor))
 	{

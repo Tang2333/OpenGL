@@ -65,8 +65,8 @@ GLUSboolean init(GLUSvoid)
 
     GLUSshape cube;
 
-    glusFileLoadText("../Example06/shader/basic.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example06/shader/texture.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example06/shader/basic.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example06/shader/texture.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_program, (const GLUSchar**) &vertexSource.text, 0, 0, 0, (const GLUSchar**) &fragmentSource.text);
 
@@ -91,7 +91,7 @@ GLUSboolean init(GLUSvoid)
 
     // Texture set up.
 
-    glusImageLoadTga("crate.tga", &image);
+    glusImageLoadTga("../../Binaries/crate.tga", &image);
 
     glGenTextures(1, &g_texture);
     glBindTexture(GL_TEXTURE_2D, g_texture);

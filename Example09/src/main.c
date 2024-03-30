@@ -112,8 +112,8 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusFileLoadText("../Example09/shader/particle.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example09/shader/particle.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example09/shader/particle.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example09/shader/particle.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_program, (const GLUSchar**) &vertexSource.text, 0, 0, 0, (const GLUSchar**) &fragmentSource.text);
 
@@ -128,8 +128,8 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusFileLoadText("../Example09/shader/update_points.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example09/shader/update_points.frag.glsl", &fragmentSource);
+    glusFileLoadText("../../Example09/shader/update_points.vert.glsl", &vertexSource);
+    glusFileLoadText("../../Example09/shader/update_points.frag.glsl", &fragmentSource);
 
     glusProgramBuildFromSource(&g_programUpdatePoints, (const GLUSchar**) &vertexSource.text, 0, 0, 0, (const GLUSchar**) &fragmentSource.text);
 
@@ -144,7 +144,7 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusImageLoadTga("particle.tga", &image);
+    glusImageLoadTga("../../Binaries/particle.tga", &image);
 
     glGenTextures(1, &g_texture);
 
