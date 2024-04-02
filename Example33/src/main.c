@@ -307,7 +307,9 @@ GLUSboolean init(GLUSvoid)
 
 				printf("Loading '%s' ...", buffer);
 
-				if (!glusImageLoadHdr(buffer, &image[i*NUMBER_ROUGHNESS*6 + k*6 + m]))
+				GLchar hdfBuffer[50];
+				sprintf(hdfBuffer, "../../Binaries/%s", buffer);
+				if (!glusImageLoadHdr(hdfBuffer, &image[i*NUMBER_ROUGHNESS*6 + k*6 + m]))
 				{
 					printf(" error!\n");
 					continue;
@@ -366,7 +368,7 @@ GLUSboolean init(GLUSvoid)
     //
 
 	printf("Loading 'doge2/EnvironmentBRDF_1024.data' ...");
-    if (!glusFileLoadBinary("doge2/EnvironmentBRDF_1024.data", &rawimage))
+    if (!glusFileLoadBinary("../../Binaries/doge2/EnvironmentBRDF_1024.data", &rawimage))
     {
 		printf(" error!\n");
     }
@@ -433,7 +435,7 @@ GLUSboolean init(GLUSvoid)
 	//
 
 	// Use a helper function to load an wavefront object file.
-	glusShapeLoadWavefront("venusm.obj", &wavefront);
+	glusShapeLoadWavefront("../../Binaries/venusm.obj", &wavefront);
 
 	g_numberVerticesModel = wavefront.numberVertices;
 

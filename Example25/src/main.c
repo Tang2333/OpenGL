@@ -99,6 +99,7 @@ static GLUSwavefront g_wavefront;
 
 GLUSboolean init(GLUSvoid)
 {
+	glCheckError();
 	// This is a white light.
 	struct LightProperties light = { { 1.0f, 1.0f, 1.0f }, { 0.3f, 0.3f, 0.3f, 1.0f }, { 1.0f, 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f, 1.0f } };
 
@@ -117,6 +118,7 @@ GLUSboolean init(GLUSvoid)
 
 	glusFileDestroyText(&vertexSource);
 	glusFileDestroyText(&fragmentSource);
+	glCheckError();
 
 	//
 
@@ -140,12 +142,13 @@ GLUSboolean init(GLUSvoid)
 	g_vertexLocation = glGetAttribLocation(g_program.program, "a_vertex");
 	g_normalLocation = glGetAttribLocation(g_program.program, "a_normal");
 	g_texCoordLocation = glGetAttribLocation(g_program.program, "a_texCoord");
+	glCheckError();
 
 	//
 	// Use a helper function to load the wavefront object file.
 	//
 
-	glusWavefrontLoad("ChessKing.obj", &g_wavefront);
+	glusWavefrontLoad("../../Binaries/ChessKing.obj", &g_wavefront);
 
 	glGenBuffers(1, &g_wavefront.verticesVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, g_wavefront.verticesVBO);
@@ -160,12 +163,14 @@ GLUSboolean init(GLUSvoid)
 	glBufferData(GL_ARRAY_BUFFER, g_wavefront.numberVertices * 2 * sizeof(GLfloat), (GLfloat*)g_wavefront.texCoords, GL_STATIC_DRAW);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glCheckError();
 
 	//
 	// Set up indices and the VAOs for each group
 	//
 
 	glUseProgram(g_program.program);
+	glCheckError();
 
 	groupWalker = g_wavefront.groups;
 	while (groupWalker)
@@ -198,6 +203,7 @@ GLUSboolean init(GLUSvoid)
 		glBindVertexArray(0);
 
 		groupWalker = groupWalker->next;
+		glCheckError();
 	}
 
 	//
@@ -211,26 +217,32 @@ GLUSboolean init(GLUSvoid)
 		{
 			// Load the image.
 			glusImageLoadTga(materialWalker->material.diffuseTextureFilename, &image);
+			glCheckError();
 
 			// Generate and bind a texture.
 			glGenTextures(1, &materialWalker->material.diffuseTextureName);
 			glBindTexture(GL_TEXTURE_2D, materialWalker->material.diffuseTextureName);
+			glCheckError();
 
 			// Transfer the image data from the CPU to the GPU.
 			glTexImage2D(GL_TEXTURE_2D, 0, image.format, image.width, image.height, 0, image.format, GL_UNSIGNED_BYTE, image.data);
+			glCheckError();
 
 			// Setting the texture parameters.
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+			glCheckError();
 
 			glGenerateMipmap(GL_TEXTURE_2D);
+			glCheckError();
 
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
 		materialWalker = materialWalker->next;
+		glCheckError();
 	}
 
 	//
@@ -260,6 +272,7 @@ GLUSboolean init(GLUSvoid)
 
 	glEnable(GL_CULL_FACE);
 
+	glCheckError();
 	return GLUS_TRUE;
 }
 
@@ -277,6 +290,7 @@ GLUSvoid reshape(GLUSint width, GLUSint height)
 
 GLUSboolean update(GLUSfloat time)
 {
+	glCheckError();
 	static GLfloat angle = 0.0f;
 
 	GLfloat modelViewMatrix[16];
@@ -332,6 +346,7 @@ GLUSboolean update(GLUSfloat time)
 
 	angle += 30.0f * time;
 
+	glCheckError();
 	return GLUS_TRUE;
 }
 

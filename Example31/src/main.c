@@ -252,7 +252,7 @@ GLUSboolean init(GLUSvoid)
 	// Use a helper function to load the wavefront object file.
 	//
 
-	glusWavefrontLoad("ChessPawn.obj", &g_wavefront);
+	glusWavefrontLoad("../../Binaries/ChessPawn.obj", &g_wavefront);
 
 	glGenBuffers(1, &g_wavefront.verticesVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, g_wavefront.verticesVBO);

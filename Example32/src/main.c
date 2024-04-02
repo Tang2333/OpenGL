@@ -251,7 +251,7 @@ GLUSboolean init(GLUSvoid)
 	glBindTexture(GL_TEXTURE_2D, g_panoramaTexture);
 
 	printf("Loading HDR texture ... ");
-	if (!glusImageLoadHdr("doge2.hdr", &image))
+	if (!glusImageLoadHdr("../../Binaries/doge2.hdr", &image))
 	{
 		printf("failed!\n");
 
@@ -299,7 +299,7 @@ GLUSboolean init(GLUSvoid)
 	//
 
 	// Use a helper function to load an wavefront object file.
-	glusShapeLoadWavefront("venusm.obj", &wavefront);
+	glusShapeLoadWavefront("../../Binaries/venusm.obj", &wavefront);
 
 	g_numberVerticesModel = wavefront.numberVertices;
 

@@ -158,7 +158,7 @@ GLUSboolean init(GLUSvoid)
     //
 
     // Use a helper function to load an wavefront object file.
-    glusShapeLoadWavefront("teapot.obj", &wavefrontObj);
+    glusShapeLoadWavefront("../../Binaries/teapot.obj", &wavefrontObj);
 
     g_numberVertices = wavefrontObj.numberVertices;
 

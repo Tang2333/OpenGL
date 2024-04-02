@@ -92,7 +92,7 @@ GLUSboolean init(GLUSvoid)
     // 3D model
     //
 
-	glusWavefrontLoad("ChessKing.obj", &g_wavefront);
+	glusWavefrontLoad("../../Binaries/ChessKing.obj", &g_wavefront);
 
 	glGenBuffers(1, &g_wavefront.verticesVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, g_wavefront.verticesVBO);

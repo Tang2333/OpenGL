@@ -103,7 +103,7 @@ GLUSboolean initWavefront(GLUSfloat viewMatrix[16], struct LightProperties* ligh
     //
 
     // Use a helper function to load an wavefront object file.
-    glusShapeLoadWavefront("monkey.obj", &wavefrontObj);
+    glusShapeLoadWavefront("../../Binaries/monkey.obj", &wavefrontObj);
 
     g_numberVertices = wavefrontObj.numberVertices;
 

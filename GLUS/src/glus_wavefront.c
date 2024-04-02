@@ -399,37 +399,49 @@ static GLUSboolean glusWavefrontLoadMaterial(const GLUSchar* filename, GLUSmater
 		{
 			sscanf(checkBuffer, "%s %s", identifier, name);
 
-			strcpy(currentMaterialList->material.emissiveTextureFilename, name);
+			char relativeName[GLUS_MAX_STRING + 20];
+			sprintf(relativeName, "../../Binaries/%s", name);
+			strcpy(currentMaterialList->material.emissiveTextureFilename, relativeName);
 		}
 		else if (strncmp(checkBuffer, "map_ka", 6) == 0)
 		{
 			sscanf(checkBuffer, "%s %s", identifier, name);
 
-			strcpy(currentMaterialList->material.ambientTextureFilename, name);
+			char relativeName[GLUS_MAX_STRING + 20];
+			sprintf(relativeName, "../../Binaries/%s", name);
+			strcpy(currentMaterialList->material.ambientTextureFilename, relativeName);
 		}
 		else if (strncmp(checkBuffer, "map_kd", 6) == 0)
 		{
 			sscanf(checkBuffer, "%s %s", identifier, name);
 
-			strcpy(currentMaterialList->material.diffuseTextureFilename, name);
+			char relativeName[GLUS_MAX_STRING + 20];
+			sprintf(relativeName, "../../Binaries/%s", name);
+			strcpy(currentMaterialList->material.diffuseTextureFilename, relativeName);
 		}
 		else if (strncmp(checkBuffer, "map_ks", 6) == 0)
 		{
 			sscanf(checkBuffer, "%s %s", identifier, name);
 
-			strcpy(currentMaterialList->material.specularTextureFilename, name);
+			char relativeName[GLUS_MAX_STRING + 20];
+			sprintf(relativeName, "../../Binaries/%s", name);
+			strcpy(currentMaterialList->material.specularTextureFilename, relativeName);
 		}
 		else if (strncmp(checkBuffer, "map_d", 5) == 0 || strncmp(checkBuffer, "map_Tr", 6) == 0)
 		{
 			sscanf(checkBuffer, "%s %s", identifier, name);
 
-			strcpy(currentMaterialList->material.transparencyTextureFilename, name);
+			char relativeName[GLUS_MAX_STRING + 20];
+			sprintf(relativeName, "../../Binaries/%s", name);
+			strcpy(currentMaterialList->material.transparencyTextureFilename, relativeName);
 		}
 		else if (strncmp(checkBuffer, "map_bump", 8) == 0 || strncmp(checkBuffer, "bump", 4) == 0)
 		{
 			sscanf(checkBuffer, "%s %s", identifier, name);
 
-			strcpy(currentMaterialList->material.bumpTextureFilename, name);
+			char relativeName[GLUS_MAX_STRING + 20];
+			sprintf(relativeName, "../../Binaries/%s", name);
+			strcpy(currentMaterialList->material.bumpTextureFilename, relativeName);
 		}
 		else if (strncmp(checkBuffer, "illum", 5) == 0)
 		{
@@ -788,8 +800,9 @@ GLUSboolean _glusWavefrontParse(const GLUSchar* filename, GLUSshape* shape, GLUS
 				{
 					wavefront->materials = 0;
 				}
-
-				if (!glusWavefrontLoadMaterial(name, &wavefront->materials))
+				char relativeName[GLUS_MAX_STRING + 20];
+				sprintf(relativeName, "../../Binaries/%s", name);
+				if (!glusWavefrontLoadMaterial(relativeName, &wavefront->materials))
 				{
 					glusWavefrontFreeTempMemory(&vertices, &normals, &texCoords, &triangleVertices, &triangleNormals, &triangleTexCoords);
 

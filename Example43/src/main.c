@@ -146,7 +146,7 @@ GLUSboolean init(GLUSvoid)
 	// Use a helper function to load the wavefront object file.
 	//
 
-	glusWavefrontLoadScene("three_objects.obj", &g_scene);
+	glusWavefrontLoadScene("../../Binaries/three_objects.obj", &g_scene);
 
 	objectWalker = g_scene.objectList;
 	while (objectWalker)

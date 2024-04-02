@@ -225,7 +225,7 @@ GLUSboolean init(GLUSvoid)
     //
 
     // Use a helper function to load an wavefront object file.
-    glusShapeLoadWavefront("bunny.obj", &bunnyShape);
+    glusShapeLoadWavefront("../../Binaries/bunny.obj", &bunnyShape);
 
     // This model does not have any texture coordinates, so generate them.
     glusShapeTexGenByAxesf(&bunnyShape, 2.0f, 0.0f, 2.0f, 0.0f, 0.0f, 0.0f);
