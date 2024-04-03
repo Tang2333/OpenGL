@@ -160,4 +160,5 @@ ELSE()
 ENDIF()
 
 add_library(GLUS ${C_FILES} ${H_FILES})
+add_dependencies(GLUS glfw)
 target_include_directories (GLUS PUBLIC ${GLUS_SOURCE_DIR}/src)

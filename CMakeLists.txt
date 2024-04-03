@@ -73,4 +73,5 @@ file(GLOB EXAMPLES_LIST LIST_DIRECTORIES true RELATIVE ${CMAKE_SOURCE_DIR} "Exam
 foreach (EXAMPLE ${EXAMPLES_LIST})
 	message(STATUS "Add Subdirectory: " ${EXAMPLE})
 	add_subdirectory(${EXAMPLE})
+	# add_dependencies(${EXAMPLE} glfw)
 endforeach()

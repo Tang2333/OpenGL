@@ -1,6 +1,25 @@
 OpenGL
 ======
 
+Modify depend from glew to glad, and modify relative path of resource.
+
+======
+
+Build and run in Windows10 Visual Studio 2019:
+
+```shell
+git clone --recursive https://github.com/Tang2333/OpenGL.git
+cd OpenGL
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
+Then all debug exe will generated in folder OpenGL/build/Debug/, and you can open the sln project in with Visual Studio to debug.
+
+======
+
 OpenGL 3 and OpenGL 4 with GLSL
 
 Please read [GLUS/README.txt](https://github.com/McNopper/OpenGL/blob/master/GLUS/README.txt)
